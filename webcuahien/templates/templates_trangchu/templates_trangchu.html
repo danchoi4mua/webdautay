@@ -1,0 +1,458 @@
+{% extends 'html_chung.html' %}
+
+{% block extra_head %}
+
+
+{% load i18n %}
+{% load static %}
+
+
+.anhcua{
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+  padding  : 0px;
+
+}
+
+.khungchinh{
+    background-color:#f7eddf; 
+}
+.chukhungchinh{
+    text-align:center;
+    align-content: center;
+    height:80vh;
+    }
+.vungnhanxet{
+    height:60vh;
+    text-align :center;
+    align-items :center;
+}
+.khungchuanhdautrang{
+  padding:0;
+}
+.nguoinhanxet{
+  text-align : left;
+}
+.carousel-control-next, .carousel-control-prev { 
+  background-color:red ;
+  bottom:0px;
+  top:unset;    
+  width : 50px ;
+  height:20px ;
+}
+.khoichuaicon {
+
+}
+.iconmxh { 
+max-width:10%;
+padding:0% 2%;
+}
+.nutthucdon{
+  padding: 0.75rem 4.5rem;
+  color: white;
+  background-color: #c33130;
+  border-radius: 5px;
+  border: 5px;
+}
+.sloganquan{
+  color:#c33130; 
+  margin: 3vh auto;
+  max-width: clamp(350px, 60vw, 480px)
+}
+.caunhanmanh{
+  color:#c33130; 
+  font-size: clamp(16px, 8vw, 40px);
+
+}
+
+.chutrongmonngon{
+  color:#c33130;
+  {% comment %} border-bottom: 2px solid #c33130; {% endcomment %}
+}
+
+
+.card{
+  border: 1px solid red;
+  background-color: #f7eddf;
+  color: #c33130;
+  margin-bottom: 2vh;
+  
+}
+.card-title{
+  padding-top: 5%;
+  color: #c33130;
+  text-transform: uppercase;
+  font-size: clamp(13px, 4vw, 15px);
+
+}
+.motamonan{
+  height:30%;
+}
+.noidungmonan{
+  height: 100%;
+  {% comment %} height: 30vh; {% endcomment %}
+  border-radius: 5px;
+  border: 1px solid #c33130;
+  background-color: #F4F1EA;
+  width: 100%;
+  margin:0;
+}
+.hangmonngon{
+  min-height: 180px;
+}
+.nutmotathem{
+  border-radius: .75rem;
+  background-color: #FF6C00;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  width:auto;
+  height: 28px;
+  line-height: 1;
+  padding-bottom: .25rem;
+  padding-top: .25rem;
+} 
+
+.chugiavi{
+  text-decoration: none;
+  text-align: center;
+  color:white;
+  padding-right: 1.25rem;
+  font-size: 14px;
+} 
+.icongiavi{
+  width: 14px;
+  height: 14px;
+  margin-right: 0.5rem;
+  margin-left: 0.75rem;
+}
+.noidungmota{
+  padding:5%;
+}
+#loicamon{
+  font-size: clamp(16px, 8vw, 32px);
+}
+.khungcamon{
+ background-color: #F4F1EA;
+
+}
+  .img-fluid{
+  border-radius:5px;
+  object-fit: cover;
+  max-width: 650px;
+  max-height: 550px;
+  min-width: 310px;
+  min-height: 310px;
+}
+
+.thank-you-text{
+  color:#c33130;
+}
+
+
+@media screen and (min-width: 768px){
+  .sloganquan{
+    font-size:clamp(18px, 2vw, 24px);
+  }
+
+  .khungcamon{
+    padding: 5% 2%;
+  }
+  .card-img-top{
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    }
+}
+@media screen and (max-width: 768px){
+
+  .thank-you-text{
+    padding: 50px;
+  }
+  .card-img-top{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    }
+}
+@media screen and (max-width: 992px){
+
+  .chukhungchinh{
+    height:46vh;
+  }
+  .card-title{
+    font-size: clamp(15px, 5vw, 17px);
+  }
+}
+@media screen and (min-width: 992px){
+  .boccua{
+  height : 80vh;
+  }
+  .navbar{
+    height: clamp(50px, 6vh, 60px);
+    }
+  .card-img-top{
+    height: clamp(150px, 30vh, 350px);
+  }
+  .thank-you-text{
+    max-width:610px;
+  }
+  .khungcamon {
+    padding:  6% 8%;
+}
+}
+
+
+
+{% endblock %}
+
+{% block content %}
+{% load i18n %}
+{% load static %}
+
+{% comment %} <p>{% translate "Hello, World!" %}</p>  {% endcomment %}
+<div class="container-fluid khungchinh ">
+    <div class="row ">
+        <div class="col-md-6  col-12 khungchuanhdautrang">
+            <img src="{% static 'images/dsc01008_fe8d588521254c58aa80ee47c6083ee6_master.webp' %}" class="anhcua boccua chukhungchinh"> 
+        </div> 
+        <div class="col-md-6 col-12  chukhungchinh ">
+            <div >
+                <span class="caunhanmanh chucapcao">Ngon ngất ngây,<br>giá lại hay!</span>
+            </div>
+            <div >
+              <div >
+                <p class = "sloganquan  chucapthap "> Thấm đượm hương vị tươi mới của thảoệt này, chỉ có trong thời gian giới hạn.</p>
+              </div>
+              <div >    
+                <button class = "nutthucdon chucaptrung">THỰC ĐƠN QUÁN</button>
+              </div>
+            </div>
+        </div>
+    </div> 
+</div>
+
+<div class="container monngoncuaquan">
+    <div class="chucapcao my-4  chutrongmonngon">
+        <h1 class="m-0">Bán Chạy Trong Tuần</h1>
+    </div>
+
+
+
+    <div class="row">
+      
+
+      <div class="col-12 col-lg-3 col-sm-6 mb-2">
+        <div class="row noidungmonan">
+            <div class="col-7 col-lg-12 col-sm-12 order-lg-2 order-sm-2 hangmonngon">
+              <div class="row h-100 noidungmota">
+                <h4 class=" col-12 card-title chucaptrung">tôm hùm alaska hấp</h4>
+                <p class="col-12 chucapthap motamonan">Cua hấp tươi ngon, hương vị biển say đắm!</p>
+                <div>
+                  <div class="d-inline-flex nutmotathem align-items-center justify-content-center">
+                    <img class="icongiavi" src="{% static 'images/chili.svg' %}">
+                    <a class="chugiavi chucaptrung">CAY</a>
+                  </div>
+                </div>
+              </div> 
+            </div>
+            <div class="col-5 col-lg-12  col-sm-12 order-lg-1 order-sm-1 d-flex   align-items-center p-0">
+                <img class="card-img-top anhcua" src="{% static 'images/dsc01008_fe8d588521254c58aa80ee47c6083ee6_master.webp' %}" alt="Card image">
+            </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-3 col-sm-6 mb-2">
+        <div class="row noidungmonan">
+            <div class="col-7 col-lg-12 col-sm-12 order-lg-2 order-sm-2 hangmonngon">
+              <div class="row h-100 noidungmota">
+                <h4 class=" col-12 card-title chucaptrung">ốc bulot hấp tiêu</h4>
+                <p class="col-12 chucapthap motamonan">Cua hấp tươi ngon,  ươi ngon, hương vị biển say đắm!</p>
+                <div>
+                  <div class="d-inline-flex nutmotathem">
+                    <img class="icongiavi" src="{% static 'images/chili.svg' %}">
+                    <a class="chugiavi chucaptrung">cay</a>
+                  </div>
+                </div>
+              </div> 
+            </div>
+            <div class="col-5 col-lg-12  col-sm-12 order-lg-1 order-sm-1 d-flex   align-items-center p-0">
+                <img class="card-img-top anhcua" src="{% static 'images/img_2731_grande.jpg' %}" alt="Card image">
+            </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-12 col-lg-3 col-sm-6 mb-2">
+        <div class="row noidungmonan">
+            <div class="col-7 col-lg-12 col-sm-12 order-lg-2 order-sm-2 hangmonngon">
+              <div class="row h-100 noidungmota">
+                <h4 class=" col-12 card-title chucaptrung">sêu nướng phô mai</h4>
+                <p class="col-12 chucapthap motamonan">Cua hấp tươi ngon, hương vị hương vị hương vị biển say đắm!</p>
+                <div>
+                  <div class="d-inline-flex ">
+                    {% comment %} <img class="icongiavi" src="{% static 'images/chili.svg' %}">
+                    <a class="chugiavi chucaptrung">cay</a> {% endcomment %}
+                    <a class=" chucapthap">Xem giá</a>
+                  </div>
+                </div>
+              </div> 
+            </div>
+            <div class="col-5 col-lg-12  col-sm-12 order-lg-1 order-sm-1 d-flex   align-items-center p-0"> 
+                <img class="card-img-top anhcua" src="{% static 'images/img_1698_2f3ef7a9354049cf9cbe588d3d628f21_grande.jpg' %}" alt="Card image">
+            </div>
+        </div>
+      </div>
+
+
+      <div class="col-12 col-lg-3 col-sm-6 mb-2">
+        <div class="row noidungmonan">
+            <div class="col-7 col-lg-12 col-sm-12 order-lg-2 order-sm-2 hangmonngon">
+              <div class="row h-100 noidungmota">
+                <h4 class=" col-12 card-title chucaptrung">miến mực</h4>
+                <p class="col-12 chucapthap motamonan">Cua hấp tươi ngon, hương vị biển say  ị biển say  đắm!</p>
+                <div>
+                  <div class="d-inline-flex nutmotathem">
+                    <img class="icongiavi" src="{% static 'images/chili.svg' %}">
+                    <a class="chugiavi chucaptrung">cay</a>
+                    <img class="icongiavi" src="{% static 'images/chili.svg' %}">
+                    <a class="chugiavi chucaptrung">cay</a>
+                  </div>
+                </div>
+              </div> 
+            </div>
+            <div class="col-5 col-lg-12  col-sm-12 order-lg-1 order-sm-1 d-flex   align-items-center p-0">
+                <img class="card-img-top anhcua" src="{% static 'images/img_8630_6f9afb8113b548558d8f71214ede2d3c_grande.jpg' %}" alt="Card image">
+            </div>
+        </div>
+      </div>
+
+
+    </div> <!-- Đóng thẻ row khungchuaanhmenu -->
+</div> <!-- Đóng thẻ container monngoncuaquan -->
+
+
+
+{% comment %} 
+  <div class="container">
+  <div class="row vungnhanxet">
+      <div class="col-12 col-lg-6 ">
+          Những Nhận Xét Tích Tực Mà Quán Nhận Được
+      </div>
+      <div class="col-12 col-lg-6 "> 
+          <div id="carouselExample" class="carousel slide " data-ride="true" data-touch="true">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="carousel-content-wrapper">
+                    <em>HẢI SẢN BÉ MẶN - ĐÀ NẴNG
+                      Quán hải sản Bé Mặn quá đỗi nổi tiếng với khách du lịch và người dân Đà Nẵng, 
+                      tối hôm ấy bọn mình định ra Năm Đảnh cơ mà hết đồ rồi mà đường ra đó lắt léo vãi chưởng, 
+                      tìm đến cũng hết hơi ý 😂😂😂 thế là thôi lại ra đây. Bé Mặn đồ tươi tắn khỏi bàn, 
+                      bát đũa cốc chén khá sạch, lên đồ ko bị lâu la lề mề mặc dù cực đông.
+                      Nhóm mình đi 6 người gọi hải sản món vừa tiền thôi, bữa này 1tr590k cả đồ uống mà vẫn bao món, tính ra 270k/đứa quá hợp lý. 
+                      Đồ ăn đĩa nào cũng đầy đặn và ngon miệng lắm, chỉ là đồ trong này gia giảm đậm đà hơn thôi, 
+                      hay là tên Bé Mặn nên mặn tí nhỉ Cá chìa vôi nướng và mực da best
+                      </em>
+                        <div class="nguoinhanxet">
+                          <strong>Thảo Hoàng</strong><br>
+                          <a href="https://www.foody.vn/da-nang/hai-san-be-man/binh-luan-3806984">foody</a>
+                        </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="carousel-content-wrapper">
+                    <em>HẢI SẢN BÉ MẶN - ĐÀ NẴNG
+                      Quán hải sản Bé Mặn quá đỗi nổi tiếng với khách du lịch và người dân Đà Nẵng, 
+                      tối hôm ấy bọn mình định ra Năm Đảnh cơ mà hết đồ rồi mà đường ra đó lắt léo vãi chưởng, 
+                      tìm đến cũng hết hơi ý 😂😂😂 thế là thôi lại ra đây. Bé Mặn đồ tươi tắn khỏi bàn, 
+                      bát đũa cốc chén khá sạch, lên đồ ko bị lâu la lề mề mặc dù cực đông.
+                      Nhóm mình đi 6 người gọi hải sản món vừa tiền thôi, bữa này 1tr590k cả đồ uống mà vẫn bao món, tính ra 270k/đứa quá hợp lý. 
+                      Đồ ăn đĩa nào cũng đầy đặn và ngon miệng lắm, chỉ là đồ trong này gia giảm đậm đà hơn thôi, 
+                      hay là tên Bé Mặn nên mặn tí nhỉ Cá chìa vôi nướng và mực da best
+                      </em>
+                        <div  class="nguoinhanxet">
+                          <strong>Thảo Hoàng</strong><br>
+                          <a href="https://www.foody.vn/da-nang/hai-san-be-man/binh-luan-3806984">foody</a>
+                        </div>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="carousel-content-wrapper">
+                    <em>HẢI SẢN BÉ MẶN - ĐÀ NẴNG
+                      Quán hải sản Bé Mặn quá đỗi nổi tiếng với khách du lịch và người dân Đà Nẵng, 
+                      tối hôm ấy bọn mình định ra Năm Đảnh cơ mà hết đồ rồi mà đường ra đó lắt léo vãi chưởng, 
+                      tìm đến cũng hết hơi ý 😂😂😂 thế là thôi lại ra đây. Bé Mặn đồ tươi tắn khỏi bàn, 
+                      bát đũa cốc chén khá sạch, lên đồ ko bị lâu la lề mề mặc dù cực đông.
+                      Nhóm mình đi 6 người gọi hải sản món vừa tiền thôi, bữa này 1tr590k cả đồ uống mà vẫn bao món, tính ra 270k/đứa quá hợp lý. 
+                      Đồ ăn đĩa nào cũng đầy đặn và ngon miệng lắm, chỉ là đồ trong này gia giảm đậm đà hơn thôi, 
+                      hay là tên Bé Mặn nên mặn tí nhỉ Cá chìa vôi nướng và mực da best
+                      </em>
+                        <div class="nguoinhanxet">
+                          <strong   >Thảo Hoàng</strong><br>
+                          <a href="https://www.foody.vn/da-nang/hai-san-be-man/binh-luan-3806984">foody</a>
+                        </div>
+                  </div>
+                </div>
+            
+
+              <!-- Left and right controls/icons -->
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </button>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>  {% endcomment %}
+
+
+<div class="container-fluid mt-5 khungcamon justify-content-center align-content-center" >
+  <div class="row">
+    <!-- Ảnh -->
+      <div class="col-12 col-md-6 text-end h-100" >
+        <img src="{% static 'images/pam-connie_2240e1a6-9269-44b9-b04e-bf9f7aeee85f_2000x.webp' %}" class="img-fluid w-100 " alt="Ảnh Bé Mặn">
+      </div>
+      <!-- Lời Cảm Ơn --> 
+      <div class="col-12 col-md-6 thank-you-text  ">
+        <h2 class="fw-bold chucaptrung " id="loicamon"> Chân thành cảm ơn quý khách!</h2>
+        <p class="chucapthap my-4" >Chúng tôi xin gửi lời cảm ơn chân thành đến quý khách hàng đã đồng hành cùng nhà hàng hải sản Bé Mặn trong suốt chặng đường phát triển lâu dài. Với lịch sử nhiều năm phục vụ những món hải sản tươi ngon, chúng tôi luôn trân trọng từng khoảnh khắc mà quý khách đã dành để thưởng thức ẩm thực tại đây. Dù biết rằng vẫn còn những thiếu sót trong dịch vụ, chúng tôi cam kết không ngừng cải thiện chất lượng để
+           mang đến trải nghiệm tốt hơn. Rất mong quý khách thông cảm và tiếp tục ủng hộ, giúp Bé Mặn ngày một hoàn thiện và phát triển hơn nữa.</p>
+        <p class="chucapthap"> Mộng Kiều và Việt Hiển  <br> Đồng sáng lập Hải Sản Bé Mặn </p>
+        
+      </div>
+ 
+  </div>
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+    {% comment %} <div class=" col-12 col-lg-3">
+      <div class="card " >
+          <img class="card-img-top anhcua" src="{% static 'images/dsc01008_fe8d588521254c58aa80ee47c6083ee6_master.webp' %}" alt="Card image">
+          <div class="card-body">
+            <h4 class="card-title chucaptrung">John Doe</h4>
+            <a class="chucapthap">xem thêm</a>
+
+           <div class="d-flex  nutmotathem ">
+              <img class="icongiavi" src="{% static 'images/chili.svg' %}" >
+              <a class="chugiavi chucaptrung">cay</a>
+            </div> 
+            
+          </div>
+      </div>
+    </div>      {% endcomment %}
+
+
+
+

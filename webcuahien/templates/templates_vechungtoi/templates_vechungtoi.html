@@ -1,0 +1,190 @@
+{% extends 'html_chung.html' %}
+
+{% block extra_head %}
+.chucauhoi{
+  color: #c33130;
+}
+.chutraloi{
+  color: #333333;
+}
+.kechuyen{
+  color: #c33130;
+  {% comment %} background-color: #f4f1ea; {% endcomment %}
+}
+.nhanxet{
+  width:clamp(300px, 75vw, 700px)
+}
+.khungnhanxet{
+  height: clamp(300px, 100vw, 430px);
+  background-color:#c33130;
+}
+.carousel-item {
+  transition: transform 0.1s ease-in-out; /* Chuyển động trong 100ms */
+}
+.khungmichelin{
+  background-color:#F4F1EA;
+  color:#c33130;
+}
+@media screen and (min-width: 992px) {
+  .khungnhanxet{
+    height: clamp(200px, 100vw, 300px);
+  }
+  .kechuyen{
+    width:clamp(300px, 85vw, 850px)
+  }
+}
+{% endblock %}
+
+{% block content %}
+{% load static %}
+{% load i18n %}
+<div class="container p-0">
+    <img src="{% static 'images/08.09.24_LoroHouston_25-e1727804164225.jpg' %}" class=" w-100 anhtrongtuyendung">
+</div>
+
+
+
+
+
+<div class="container text-center kechuyen  ">
+  <h2 class="chucapcao  my-4">{% trans "Câu chuyện đằng sau Bé Mặn "%}</h2>
+  <p class="chucapthap p-2 m-0 text-dark ">
+    {% trans "Cách đây 34 năm, trong một góc nhỏ của Đà Nẵng khi thành phố vẫn còn là một làng chài đơn sơ, Bé Mặn đã ra đời từ tình yêu sâu sắc với biển cả và niềm đam mê mang những mẻ hải sản tươi ngon nhất đến bàn ăn. Được sáng lập bởi một gia đình nhỏ với những ước mơ lớn, quán ban đầu chỉ là một tiệm ăn nhỏ gần bờ biển, phục vụ những món hải sản đơn giản nhưng đầy hương vị cho người dân địa phương và du khách."%}
+    <br>
+    <br>
+    {% trans "Qua nhiều năm, Bé Mặn đã trải qua không ít khó khăn, cả nghĩa đen lẫn nghĩa bóng. Từ việc tìm nguồn hải sản tươi ngon trong những mùa biển khó khăn cho đến việc thích nghi với sự thay đổi khi Đà Nẵng phát triển thành một điểm đến du lịch sầm uất, hành trình này không hề dễ dàng. Thế nhưng, nhờ vào sự tận tâm với chất lượng, sự chân thật, và không khí ấm cúng mà Bé Mặn luôn mang lại, quán ngày càng được yêu mến và có một lượng khách hàng trung thành."%}
+    <br>
+    <br>
+    {% trans "Ngày nay, Bé Mặn không chỉ là một quán hải sản, mà còn là biểu tượng cho nền ẩm thực sôi động của Đà Nẵng, vừa tôn vinh sự phát triển của thành phố vừa gìn giữ giá trị cội nguồn. Với hơn ba thập kỷ kinh nghiệm và lòng biết ơn sâu sắc, Bé Mặn vẫn tiếp tục phục vụ những món ăn không chỉ ngon miệng mà còn kể nên một câu chuyện – câu chuyện về sự kiên cường, tình thân gia đình, và mối gắn kết bền chặt với biển cả đã tạo nên dấu ấn của Bé Mặn."%}
+    <br>
+    <br>
+  </p>
+
+</div>
+<!-- Carousel -->
+<div class="carousel  khungnhanxet d-flex text-center justify-content-center align-items-center " data-bs-ride="carousel">
+  <!-- The slideshow/carousel -->
+  <div class="carousel-inner nhanxet chucapthap">
+    <div class="carousel-item  active  " data-bs-interval="6000">
+      <h3 class="mt-4  ">"Very fresh seafood and friendly staffs. We had good experience here. Thank you."</h3>
+      <h5 class="chucaptrung pt-2">Dustin Vu</h5>  
+    </div>
+    <div class="carousel-item    " data-bs-interval="6000">
+    <h3 class="mt-4  ">"다낭에 머무는 동안 해산물 레스토랑 몇 군데 다녀봤는데 맛도 가격도 제일 만족스러웠습니다. 
+      여행객보단 현지인들이 더 많고 진짜 다낭여행의 맛이 이런거구나 싶은 시간이였음. 
+      다음에 다낭가서 또 해산물 먹는다면 무조건 여기갈 것 같아요^^"</h3>
+    <h5 class="chucaptrung pt-2">강승화</h5>
+    </div>
+    <div class="carousel-item      " data-bs-interval="6000">
+          <h3 class="mt-4   ">"Quán to, rộng rãi và khá sạch sẽ.
+            Nhiều loại hải sản đang bơi trong các bể, được vớt lên nấu các món khá là tươi ngon.
+            Các món hấp thì đều cho sả và rau húng vào khá thơm. Sò mía hay sò lông đều béo và không bị cát, rất tươi.
+            Rong nho chấm sốt mè rang, siêu giòn, ngon và siêu tươi, ăn đến đâu sướng tới đó."</h3>  
+          <h5 class="chucaptrung pt-2 ">Hoang Lan</h5>
+    </div>
+
+    <div class="carousel-item    " data-bs-interval="6000">
+        <h3 class="mt-4  ">"남편이 젤 만족한 식당
+          가격이 저렴하고
+          음식도 맛있었음..
+          우리 11살 딸과 2살 아들은 바다포도 두접시먹음;;
+          다른거 다 잘먹었지만
+          남편은 갈릭버터 새우와  볶음면 너무 맛있었다며.
+          오징어 튀김은 맥주각!!
+          대합탕은 레몬글라스 때문에 못 먹어서 내가 다먹음 ㅋㅋ"</h3>
+        <h5 class="chucaptrung pt-2">정옥희</h5>
+    </div>
+
+
+        
+
+
+    <div class="carousel-item    " data-bs-interval="6000">
+      <h3 class="mt-4  ">"高齢の両親には、注文スタイルが難しかったようで選ぶことに困難していましたが、
+        頼んだものは全て美味しかったです。ロケーションも良くて、スタッフの方も一生懸命でした。
+        食べたかったシーフード、ここのお店にして良かったです。"</h3>
+      <h5 class="chucaptrung pt-2">Chisato Kiriyama</h5>
+    </div>
+
+
+
+
+    <div class="carousel-item   " data-bs-interval="6000">
+      <h3 class="mt-4  ">"酒店旁邊的海鮮餐廳，每晚都滿座的，今晚去試試。入座後自己拿着枱号去選海鲜，
+        自己決定煮法，選好後會告訴你價格，
+        ok了才煮。基本上都美味
+        ，酒水飯麵都便宜，
+        值得一試"
+      </h3>
+      <h5 class="chucaptrung pt-2">Kerry Wu</h5>  
+    </div>
+
+  </div>
+
+  <!-- Left and right controls/icons -->
+ <button class="carousel-control-prev d-none d-md-block" type="button" data-bs-target="#demo" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next d-none d-md-block" type="button" data-bs-target="#demo" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button> 
+</div>
+
+<div class="container  my-4 " >
+  <div class="row ">
+      <div class="col-12 col-md-6 ">
+        <img class=" w-100" src="{% static 'images/Cup-vinh-danh-kim-loai-cho-cac-giai-the-thao-dien-tu-WG-079-Sao-chep-768x768.jpg' %}">
+    </div>
+    <div class="col-12 col-md-6  d-flex flex-column align-items-center text-center justify-content-center khungmichelin p-4">
+      <h2 class="chucapcao">{% trans " Michelin Guide 2024 "%} </h2>
+      <p class="chucapthap  ">{% trans "Năm 2024 đánh dấu một cột mốc đáng tự hào cho Bé Mặn khi nhà hàng chính thức được công nhận trong Michelin Guide -
+        biểu tượng toàn cầu của ẩm thực đẳng cấp. 
+        Danh hiệu này không chỉ là sự ghi nhận cho những nỗ lực không ngừng nghỉ trong việc mang đến các món hải sản tươi ngon, chuẩn vị, 
+        mà còn khẳng định vị thế của Bé Mặn trong bản đồ ẩm thực quốc tế. 
+        Với niềm vinh dự này, 
+        Bé Mặn tiếp tục cam kết giữ vững chất lượng,
+        mang đến trải nghiệm đáng nhớ cho thực khách từ khắp nơi trên thế giới." %}</p>
+      </div>
+  </div>
+</div>
+
+
+<!--Section: FAQ-->
+<section class="container text-center">
+  <h1 class="text-center my-4 chucauhoi chucapcao">{% trans "Câu Hỏi Thường Gặp"%}</h1>
+
+  <div class="row ">
+    <div class="col-12 mb-4">
+      <h5 class="mb-3 chucauhoi  chucaptrung">{% trans "Thời gian đóng cửa cố định ? "%}</h5>
+      <p class="chutraloi chucapthap"  >
+        {% trans "Chúng tôi sẽ đóng cửa khi quán hết khách , nhưng thông thường thời gian đóng cửa cố định nó sẽ là 24h."%}
+      </p>
+    </div>
+
+    <div class="col-12 mb-4">
+      <h5 class="mb-3 chucauhoi  chucaptrung">{% trans "Đặt Bàn Tại Quán Qua Đâu ? "%}</h5>
+      <p class="chutraloi chucapthap"  >
+        {% trans "Bạn có thể đặt bàn tại quán bằng cách gọi điện hoặc đặt bàn trực tiếp tại quán. Liên hệ số điện thoại 0906969696 để được hỗ trợ."%}
+      </p>
+    </div>
+
+    <div class="col-12 mb-4">
+      <h5 class="mb-3 chucauhoi  chucaptrung">{% trans "Các Món Như Cua , Ghẹ , Tôm Hùm Nếu ỐP Thì Sao ?"%}</h5>
+      <p class="chutraloi chucapthap">
+        {% trans "Nếu các món như cua , ghẹ , tôm hùm ốp thì quý khách hàng được phép đổi lại quán một con cùng loại khác."%}
+      </p>
+    </div>
+
+    <div class="col-12 mb-4">
+      <h5 class="mb-3 chucauhoi  chucaptrung">{% trans "Giờ Cao Điểm Thường Khi Nào ?"%}</h5>
+      <p class="chutraloi chucapthap">
+        {% trans "Giờ cao điểm thường là vào lúc từ 17h00 đến 20h00. Nếu quý khách muốn có trải nghiệm ăn uống tốt nhất hãy đến sớm hơn một chút. "%}
+      </p>
+    </div>
+
+</section>
+
+
+
+
+{% endblock %}

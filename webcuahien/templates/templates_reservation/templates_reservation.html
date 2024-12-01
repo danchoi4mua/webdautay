@@ -1,0 +1,153 @@
+{% extends 'html_chung.html' %}
+{% load static %}
+{% load i18n %}
+{% block extra_head %}
+.khungmoigoithamgia{
+    background-color:#f7eddf;
+}
+.loigoithamgia {
+    font-size: clamp(25px, 9vw, 45px);
+    color: #c33130;
+    padding: 10vh 3vh;
+    max-width: 750px;
+
+}
+.h1tuyendung{
+    color: #c33130;
+    {% comment %} border-bottom: 2px solid #c33130; {% endcomment %}
+}
+.viec{
+    background-color:#f7eddf;
+    margin: 20px 0px;
+    padding: 20px;
+    color: #c33130;
+    font-size: clamp(18px, 5vw, 20px);
+    border-radius: 5px;
+    border: 1px solid #c33130;
+    text-transform: uppercase;
+
+
+}
+.nutnapdon{
+    padding: 0.5rem 1rem;
+    color: white;
+    background-color: #c33130;
+    border-radius: 5px;
+    border: 5px;
+    font-size:15px;
+    text-decoration: none;
+}
+.nutnapdon:hover{
+    background-color: white;
+}
+.khungvieccantuyen{
+    {% comment %} padding-bottom: 20px; {% endcomment %}
+}
+.logos::before, 
+.logos::after {
+    width: 300px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+
+.logos::before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), #fff);
+}
+
+.logos::after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), #fff);
+}
+
+.logos-slide {
+    animation: 180s slide infinite linear;
+}
+
+
+.logos-slide img {
+    height: 40vw;
+    max-height : 500px;
+    margin: 0 5px;
+    border-radius: 5px;
+    object-fit: cover;
+    min-height: 30vh;
+}
+.khungluuy{
+    color: #696969;;
+}
+@keyframes slide {
+    from{
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+{% endblock %} 
+
+
+{% block content %}
+<div class="d-flex justify-content-center align-content-center khungmoigoithamgia">
+    <p class="loigoithamgia d-flex text-center justify-content-center align-items-center chucapcao">
+        {% trans "Tham gia cùng đội ngũ tận tâm của chúng tôi tại nhà hàng Bé Mặn , cùng nhau làm việc và có những trải nghiệm đáng nhớ . "%}
+    </p>
+</div>
+
+<div class="container chucaptrung khungvieccantuyen"> 
+    <h1 class="chucapcao h1tuyendung my-4">{% trans "Vị Trí Cần Ứng Tuyển"%}</h1>
+    {% for congviec1 in congvieccantuyen %}
+        <div class="d-flex viec     justify-content-center align-items-center ">
+                <div class=" flex-grow-1 "> 
+                    {{congviec1.cong_viec_can_tuyen}}
+                </div>
+                <div >           
+                    <a href="{% url 'congviec' congviec1.id %}" class="nutnapdon btn chucaptrung">{% trans "Ứng Tuyển"%}</a>
+                </div>
+          </div>
+    {% endfor %}
+    <h6 class="chucapthap khungluuy">{% trans "Lưu ý: Chỉ Dành Cho Người Việt Nam"%}</h6>
+</div>
+
+<div class="container logos overflow-hidden  position-relative mt-5 mb-3" style="background-color: #fff; white-space: nowrap;">
+    <div class="logos-slide d-inline-block">
+
+
+        <img src="{% static 'images/tam-quan-trong-cua-backdrop-team-building-team-building-backdrop.jpg' %}" class="anhnhanvienqua"> 
+
+        <img src="{% static 'images/team-building-quang-binh.jpg' %}" class="anhnhanvienqua"> 
+
+        <img src="{% static 'images/to-chuc-team-bai-bien_29-09-2022_55690602.jpg' %}" class="anhnhanvienqua"> 
+
+        <img src="{% static 'images/images (3).jpeg' %}" class="anhnhanvienqua"> 
+
+        <img src="{% static 'images/images (2).jpeg' %}" class="anhnhanvienqua"> 
+
+        <img src="{% static 'images/images (1).jpeg' %}" class="anhnhanvienqua"> 
+
+        <img src="{% static 'images/image123wefwes (1).jpeg' %}" class="anhnhanvienqua"> 
+
+        <img src="{% static 'images/fastmotion.vn-chup-anh-quay-phim-team-building-Nha-Trang-04.jpg' %}" class="anhnhanvienqua"> 
+
+        <img src="{% static 'images/DJI_0002.jpg' %}" class="anhnhanvienqua"> 
+
+        <img src="{% static 'images/dich-vu-chup-anh-team-building-10.jpg' %}" class="anhnhanvienqua"> 
+
+        <img src="{% static 'images/chup-anh-team-building-3(1).jpg' %}" class="anhnhanvienqua"> 
+    </div>
+</div>
+
+
+<script>
+    const cloneEl = document.querySelector(".logos-slide").cloneNode(true)
+    const logos = document.querySelector('.logos').appendChild(cloneEl);
+</script>
+
+
+{% endblock %}
+
+
+

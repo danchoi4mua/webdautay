@@ -1,0 +1,358 @@
+{% extends 'html_chung.html' %}
+
+{% block extra_head %}
+
+.anhtrongtuyendung {
+    max-height: 50vh;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.title-text {
+    color: #c33130;
+    {% comment %} border-bottom: 2px solid #c33130; {% endcomment %}
+}   
+
+.step-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #333;
+}
+.step-number {
+    font-size: 40px;
+    color: #c33130;
+    font-weight: bold;
+}
+.step-text {
+    font-size: 1.1em;
+}
+:root {
+    --chieucaothanhchon: clamp(30px, 8vh, 50px);
+    --chieucaonutchonmon: clamp(30px, 7vh, 50px);
+    --chieucaocualocmonan: calc(var(--chieucaothanhchon) + var(--chieucaonutchonmon));
+
+    }
+.thanhchon {
+    background-color:#ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    height: var(--chieucaothanhchon);
+}
+.dropdown{
+    position: sticky; 
+    top: var(--chieucaothanhchon);
+    z-index: 999;
+}
+.dropdown.active {
+    background-color: #333333;
+}
+    
+.dropdown-menu{
+    transform: translate3d(0px, var(--chieucaonutchonmon), 0px) !important;
+    --bs-dropdown-padding-y: 0rem;
+}
+.dropdown-item{
+    text-transform: uppercase;
+    border: 1px solid #E1E1E1;
+    border-radius: 5px;
+    align-items: center;
+    height: 8vh;
+    color: #333333;
+    display: flex;
+    
+}
+.card {
+    border: 1px solid #c33130;
+    background-color: #f7eddf;
+    color: #c33130;
+    margin-bottom: 2vh;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.card-title{
+  
+    color: #c33130;
+    text-transform: uppercase;
+    font-size: clamp(13px, 4vw, 15px);
+
+
+    }
+.motamonan{
+    height: 70%;
+}
+.img-fluid {
+    border-radius: 8px;
+    object-fit: cover;
+    min-height: 200px;
+}
+
+
+.tab-content {
+}
+
+.nav-scroll-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.nav-scroll-container::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+}
+.nav {
+    flex-wrap: nowrap;
+    min-width: min-content;
+    
+}
+
+.thanhconvat{
+    {% comment %} background-color: #c33130; {% endcomment %}
+    {% comment %} color: #fff; {% endcomment %}
+    {% comment %} padding: 0px 0.15rem; {% endcomment %}
+    
+}
+.nutchonmon{
+    color: #c33130;
+    border: 0px;
+    height: var(--chieucaonutchonmon);
+    background-color: #FFFFFF;
+    border: 1px solid;
+
+}
+.giaconvat{
+    font-size: clamp(18px, 5vw, 20px);
+    color: #c33130;
+    text-transform: uppercase;
+}
+.convat{
+    border: 0px solid #ffffff;
+    margin: 0rem !important;
+    color: #c33130;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    border-radius: 3px;
+    height: 100%;
+    background-color: #fff;
+    min-width:100px;
+    min-height: 40px;
+}
+.convat.active{
+    color:#fff ;
+    background-color: #c33130 ;
+    {% comment %} border: 1px solid #c33130 !important; {% endcomment %}
+}
+.menu-item{
+    text-decoration: none;
+    color:#c33130;
+    text-transform: uppercase;
+    border: 1px solid;
+
+}
+.menu-item:hover{
+    text-decoration: underline;
+    color:#c33130;
+}
+.noidungmonan{
+    height: 100%;
+    {% comment %} height: 30vh; {% endcomment %}
+    border-radius: 5px;
+    border: 1px solid #c33130;
+    background-color: #F4F1EA;
+    width: 100%;
+    margin:0;
+    }
+.noidungmota{
+    padding:5%;
+    }
+.anhcua{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding  : 0px;
+    height: clamp(100px, 25vh, 180px);
+}
+.hangmonngon{
+    {% comment %} min-height: 180px; {% endcomment %}
+}
+.khungluuy{
+    color: #696969;;
+}
+@media screen and (max-width: 992px) {
+    .card-title {
+        font-size: clamp(15px, 5vw, 17px);
+}
+}
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    .anhcua {
+        height: clamp(200px, 30vh, 330px);
+}
+} 
+@media screen and (min-width: 992px) {
+    .anhcua {
+        height: clamp(180px, 25vh, 250px);
+        
+}
+}
+
+
+
+{% endblock %}
+
+{% block content %}
+{% load i18n %}
+{% load static %}
+
+
+<div class="container">
+    <img src="{% static 'images/tom_nuong_4_vi_7_926b009acb80488082570864fa396639_grande.jpg' %}" class=" w-100 anhtrongtuyendung">
+</div>
+<div class="container">
+
+    <div class="row justify-content-center align-items-center chucapthap my-4">
+        <h1 class="title-text  chucapcao pt-2">{% trans "  Hướng Dẫn Mua Hàng"%}</h1>
+        <div class="col-md-4 col-lg-3 step-container ps-4">
+            <span class="step-number">1</span>
+            <span class="step-text ">{% trans "  Lựa Chọn Bàn và Nhận Số Thứ Tự Bàn Ăn "%}</span>
+        </div>
+        <div class="col-md-4 col-lg-3 step-container ps-4">
+            <span class="step-number ">2</span>
+            <span class="step-text">{% trans "  Di Chuyển Đến Bể Hải Sản Để Gọi Món "%}</span>
+        </div>
+        <div class="col-md-4 col-lg-3 step-container ps-4">
+            <span class="step-number">3</span>
+            <span class="step-text">{% trans "  Trở Lại Bàn Và Thưởng Thức "%}</span>
+        </div>
+    </div>
+    
+
+    <h1 class="title-text  chucapcao my-4">{% trans "Thực Đơn"%}</h1>
+    <div class="container-fluid p-0">
+        <!-- Tabs navigation cho nhóm động vật -->
+        <div class="nav-scroll-container thanhchon d-flex align-items-center ">
+            <ul class="nav " id="animalTab" role="tablist">
+                {% for group in groups %}
+                    <li class="thanhconvat " role="presentation">
+                        <button class="convat chucaptrung d-flex justify-content-center align-items-center  {% if forloop.first %}active{% endif %}" id="tab-{{ group.id }}" data-bs-toggle="tab" href="#group-{{ group.id }}" role="tab" aria-controls="group-{{ group.id }}">
+                        {{ group.name }}
+                        </button>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+  
+        <!-- Tab panes cho nội dung của mỗi nhóm động vật -->
+        <div class="tab-content ">
+ 
+
+
+
+            {% for group in groups %}
+                <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="group-{{ group.id }}" role="tabpanel" aria-labelledby="tab-{{ group.id }}">
+                    <!-- Horizontal Scroll Menu cho giống động vật -->
+                    <div class="d-flex mb-3 d-none d-lg-block dropdown bg-white">
+                        {% for animal in group.animals.all %}
+                             <a href="#animal-{{ animal.id }}" class=" me-2 chucapthap btn menu-item " role="button" >
+                                {{ animal.name }}
+                             </a> 
+                        {% endfor %}
+                    </div>
+
+                    <!-- Dropdown cho màn hình nhỏ -->
+                    <div class="dropdown d-lg-none d-block ">
+                        <button class="nutchonmon dropdown-toggle w-100 chucapthap p-0"  type="button" id="dropdownMenu{{ group.id }}" data-bs-toggle="dropdown" aria-expanded="false">
+                           {% trans "Đi Đến  "%}
+                        </button>
+                        <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenu{{ group.id }}">
+                            {% for animal in group.animals.all %}
+                                <li style="padding: 0.25rem;"><a class="dropdown-item chucapthap " href="#animal-{{ animal.id }}">{{ animal.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <!-- Dishes for each animal -->
+                    {% for animal in group.animals.all %}   
+                        <h4 class="giaconvat chucaptrung pt-3" id="animal-{{ animal.id }}" style="scroll-margin-top: var(--chieucaocualocmonan);">{{ animal.name }} - Giá: {{ animal.price }} VNĐ</h4>
+                            <div  class="mt-1" >
+                                <div class="row "> 
+                                    {% for dish in animal.dishes.all %}
+                                        <div class="col-12 col-lg-3 col-sm-6 my-2">
+                                            <div class="row noidungmonan">
+                                                <div class="col-7 col-lg-12 col-sm-12 order-lg-2 order-sm-2 hangmonngon">
+                                                <div class="row h-100 noidungmota">
+                                                    <h5 class=" col-12 card-title chucaptrung pt-2 ">{{ dish.name }}</h5>
+                                                    <p class="col-12 chucapthap motamonan  pt-2 ">{{ dish.description }}</p>
+                                                </div> 
+                                             </div>
+                                                <div class="col-5 col-lg-12  col-sm-12 order-lg-1 order-sm-1 d-flex   align-items-center p-0">
+                                                    <img class="card-img-top anhcua" src="{{ dish.image.url }}" alt="Card image">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                       
+                    {% endfor %}
+
+                </div>
+            {% endfor %}
+            
+        </div>
+    </div>
+</div>
+
+<div class="container khungluuy"> 
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <h6 class="chucapthap ">{% trans "Lưu ý:"%}</h6>
+            <div class="ps-3">
+                <p class="chucapthap">{% trans " Giá hải sản có thể thay đổi tùy thuộc vào mùa."%}</p>
+                <p class="chucapthap">{% trans " Giá công bố đã bao gồm các loại thuế và phí sẽ không thu thêm bất kỳ khoản phí nào khác."%}</p>
+            </div>
+        </div>
+        <div class=" col-12 col-md-6">        
+            <h6 class="chucapthap ">{% trans " Tỷ giá chuyển đổi:"%}</h6>
+            <div class="row ps-3">
+                <p class="chucapthap col-6">1 USD ~ 23.000 VNĐ</p>
+                <p class="chucapthap col-6">1000 KRW ~ 18.000 VNĐ</p>
+                <p class="chucapthap col-6">1000 CNY ~ 3.500 VNĐ</p>
+                <p class="chucapthap col-6">1000 JPY ~ 164.864 VNĐ</p>
+                <p class="chucapthap col-6">1000 THB ~ 734.330 VNĐ</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navbar = document.querySelector('.navbar');
+        const carousel = document.querySelector('.vungcarousel');
+        const stickyElements = document.querySelector('.nav-scroll-container');
+        
+        
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const stickyOffset = stickyElements.offsetTop;
+            
+            // Khi scroll đến vùng sticky menu
+            if (scrollTop >= stickyOffset - 100) { // -100 để tạo buffer zone
+                navbar.style.transform = 'translateY(-200%)';
+                carousel.style.transform = 'translateY(-200%)';
+                navbar.style.transition = 'transform 0.3s ease-in-out';
+                carousel.style.transition = 'transform 0.3s ease-in-out';
+            } else {
+                navbar.style.transform = 'none';
+                carousel.style.transform = 'none';
+            }
+            lastScrollTop = scrollTop;  
+          
+        });
+    });
+
+</script>
+{% endblock %}

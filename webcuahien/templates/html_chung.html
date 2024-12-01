@@ -1,0 +1,643 @@
+
+
+
+
+
+<!DOCTYPE html>
+{% load static %}
+{% load i18n %}
+<html lang="{{LANGUAGE_CODE}}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bé Mặn Seafood Restaurant </title>
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/Artboard5.png' %}"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Anton&family=Anton+SC&family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bebas+Neue&family=Bevan:ital@0;1&family=Bungee&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fjalla+One&family=Lalezar&family=Nerko+One&family=Oswald:wght@200..700&family=Paytone+One&family=Play:wght@400;700&family=Protest+Strike&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Rowdies:wght@300;400;700&family=Spicy+Rice&family=Vidaloka&family=Yeseva+One&display=swap" rel="stylesheet">
+
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        {% if LANGUAGE_CODE == 'en' %}
+          .chucapcao {
+            font-family: 'Anton', serif; 
+            font-weight: 100;
+          }
+          .chucaptrung {
+            font-family: "Play", serif;     
+            font-weight: 600;
+          }
+          .chucapthap {
+            font-family: "Roboto Condensed", sans-serif;
+          }
+      {% elif LANGUAGE_CODE == 'vi' %}
+          .chucapcao {
+            font-family: 'Anton', serif; 
+            font-weight: 100;
+        }
+          .chucaptrung {
+            font-family: Play;
+            font-weight: 600;
+          }
+          .chucapthap {
+            font-family: "Roboto Condensed", sans-serif;
+          }
+      {% elif LANGUAGE_CODE == 'ko' %}
+          .chucapcao {
+            font-family: 'Nanum Gothic', sans-serif;
+          }
+          .chucaptrung {
+            font-family: 'Gulim', sans-serif;
+          }
+          .chucapthap {
+            font-family: 'Dotum', sans-serif;
+          }
+      {% elif LANGUAGE_CODE == 'ja' %}
+          .chucapcao {
+            font-family: 'Noto Sans JP', sans-serif;
+          }
+          .chucaptrung {
+            font-family: 'Hiragino Kaku Gothic Pro', sans-serif;
+          }
+          .chucapthap {
+            font-family: 'Meiryo', sans-serif;
+          }
+      {% elif LANGUAGE_CODE == 'zh-hans' %}
+          .chucapcao {
+            font-family: 'Noto Sans SC', sans-serif;
+          }
+          .chucaptrung {
+            font-family: 'SimSun', serif;
+          }
+          .chucapthap {
+            font-family: 'SimHei', sans-serif;
+          }
+      {% elif LANGUAGE_CODE == 'th' %}
+          .chucapcao {
+            font-family: 'Noto Sans Thai', sans-serif;
+          }
+          .chucaptrung {
+            font-family: 'Kanit', sans-serif;
+          }
+          .chucapthap {
+            font-family: 'Sarabun', sans-serif;
+          }
+      {% endif %}
+        :root{
+          --chieudaicuavungcarousel: 32px;
+          --chieudaicuavungnavbar: clamp(35px, 6vh, 60px);
+          --chieudaithutdongcuabody: calc(var(--chieudaicuavungcarousel) + var(--chieudaicuavungnavbar));
+        }
+        body {
+            background : #FFFFFF;
+            {% comment %} background: linear-gradient(145deg, #000000, #333333); #F4F1EA  #9A0009  {% endcomment %}
+            {% comment %} font-family: 'Noto Sans', sans-serif; {% endcomment %}
+            padding:0 !important;
+            margin-top: var(--chieudaithutdongcuabody);
+        }
+
+
+        #lang-popup {
+            display: none; /* Ẩn mặc định */
+            position: fixed; /* Cố định pop-up */
+            left: 50%; /* Đặt giữa trang */
+            top: 50%; /* Đặt giữa trang */
+            transform: translate(-50%, -50%); /* Điều chỉnh để căn giữa */
+            background-color: #f4f1ea; /* Màu nền */
+            padding: 20px; /* Khoảng cách */
+            border: 1px solid #ccc; /* Viền */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Bóng đổ */
+            z-index: 1500; /* Đặt pop-up lên trên cùng */
+            width: 90%; /* Tăng chiều rộng lên 90% của màn hình */
+            max-width: 500px; /* Giới hạn chiều rộng tối đa */
+            max-height: 80%; /* Giới hạn chiều cao tối đa */
+            border-radius: 10px; /* Thay đổi bán kính góc nếu cần */
+           
+        }
+        
+        /* Đặt nền mờ phía sau pop-up */
+        #popup-overlay {
+            display: none; /* Ẩn mặc định */
+            position: fixed; /* Cố định */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Nền mờ */
+            z-index: 1500; /* Đặt dưới pop-up */
+        }
+        
+
+                
+
+        .flag-img {
+            max-width: 80px; /* Điều chỉnh kích thước */
+            margin-bottom: 10px; /* Khoảng cách dưới ảnh */
+            border: 2px solid #000; /* Thay đổi màu viền nếu cần */
+            border-radius: 8px; /* Thay đổi bán kính góc nếu cần */
+        }
+        
+        .flag-text {
+            text-align: center;
+        }  
+        
+
+        .chuchinh{
+            text-align: center;   
+            font-family: 'Oswald', serif;
+            font-weight: bold; 
+            color : #c33130;
+            transition: opacity 1s ease, transform 1s ease; /* Hiệu ứng chuyển đổi mượt mà */
+            opacity: 1; /* Bắt đầu với opacity 1 (hiển thị) */
+            font-size : clamp(1.8em, 2.2vw, 36px);
+            margin:0;
+        }
+
+        .chuphu{
+            text-align: center;
+            color:#c33130;
+            transition: opacity 1s ease, transform 1s ease; /* Hiệu ứng chuyển đổi mượt mà */
+        }
+
+
+        
+
+
+        .padingchu{
+            font-family: "Oswald", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            
+            {% comment %} text-decoration-line: underline; {% endcomment %}
+            {% comment %} text-decoration-color: green;   {% endcomment %}
+
+        }
+
+        
+        .language-buttons {
+            gap: 10px; /* Khoảng cách giữa các nút */
+            flex-wrap: wrap; /* Không cho phép các nút xuống dòng */
+            width: 100%; /* Đảm bảo container chiếm 100% chiều rộng */
+            padding-bottom:1rem;
+        }
+        
+        .lang-btn {
+            min-width: 3rem; /* Chiều rộng tối thiểu của nút */
+            height: 3.1rem; /* Chiều cao nút */
+            background-color:  #a82a29; /* Màu nền của nút */
+            border: 1px ; /* Viền nút */
+            border-radius: 0.5em !important; /* Bo tròn góc nút */
+            font-size: 1rem; /* Kích thước chữ */
+            font-weight: bold; /* Đậm chữ */
+            color: white; /* Màu chữ */
+            display: flex; /* Sử dụng flex để căn giữa chữ */
+            justify-content: center; /* Căn giữa theo chiều ngang */
+            align-items: center; /* Căn giữa theo chiều dọc */
+            cursor: pointer; /* Đổi con trỏ khi di chuột lên nút */
+        }
+
+        .navbar{
+            --bs-navbar-padding-x: 0;
+            --bs-navbar-padding-y:0;
+            height: var(--chieudaicuavungnavbar);
+        }
+        .nav-link{
+            align-items:center;
+            justify-content: center;
+            text-transform: uppercase;
+        }
+        .nutchonngonngu {
+            border:none ;
+        }
+
+
+        .thanhmarquee{
+            background-color:#c33130;
+            color :#FFFFFF;
+            height :2.8vh;
+        }
+        .chubemanchonutnavbar{
+            position: absolute;
+            font-family: 'Oswald', serif;
+            left: 50%;
+            transform: translateX(-50%);
+            margin:0;
+            color:white;
+        }
+        .lang-btn.active {
+            background-color: white; /* Màu nền */
+            color: #c33130; /* Màu chữ */
+        }
+        .btn-close{
+            background-color: white;
+            color: white;
+            padding: 15px !important;
+            border-radius: 8px;
+            --bs-btn-close-opacity: none;
+
+
+        }
+        .khungchua{
+            padding-top : 1rem;
+        }
+        .chungonngu {
+            color:white;
+        }
+        .tieudechungonngu{
+            color:#FFFFFF80;
+        }
+        .btn-close {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23C33130'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
+          }
+        
+
+        .vungcarousel {
+            background-color:#c33130;
+            padding:0 !important;
+            {% comment %} height: clamp(30px, 4vw, 35px); {% endcomment %}
+            height: var(--chieudaicuavungcarousel);
+            z-index: 1000;
+        }
+        .thanhnavbarmenu{
+          background-color:white;
+          margin-top: var(--chieudaicuavungcarousel);
+          z-index:1000;
+      }
+        .carousel-item {
+            transition: transform 0.1s ease-in-out; /* Chuyển động trong 100ms */
+            color: white;
+
+          }
+        .offcanvas-header{
+          margin-top: 1.5rem;
+        }
+
+        
+        @media screen and (min-width: 992px) {
+            .nav-item{
+                width:clamp(100px, 14vw, 150px);
+            }
+
+
+
+            .navbar-brand {
+                margin: 0 1em;
+                color : #c33130;
+            }
+            .padingchu{
+                color : #333333;
+                padding: 0 1em;
+                transition: color 0.3s ease; /* Hiệu ứng chuyển màu mượt mà */  
+                opacity: 1; /* Bắt đầu với opacity 1 (hiển thị) */
+                font-weight: bold;
+                
+            }
+            .padingchu:hover {
+                color: #c33130;
+            }
+          }
+
+
+        @media screen and (max-width: 992px) {
+            .nav-link{
+                justify-content: left;
+            }
+            --chieudaicuavungcarousel: 35px;
+            .vungcarousel {
+                height:var(--chieudaicuavungcarousel);
+            }
+
+
+            .navbar-toggler {
+                z-index: 2; /* Đảm bảo nút toggle không che logo */
+                float:right;
+            }
+            .navbar-brand {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                color : #c33130;
+                {% comment %} font-size:2em; {% endcomment %}
+                
+
+            }
+            .padingchu{
+                color : #FFFFFF;
+                opacity: 1; /* Bắt đầu với opacity 1 (hiển thị) */
+                font-size: 1.6em;
+                text-transform: none;
+
+            }
+            .maunen {
+                background : #c33130;
+            }
+            .navbar-toggler.custom-toggler {
+                border: none; /* Không viền */
+                outline: none; /* Không có outline khi nhấn vào */
+                background-color: #f7f7f7;
+            }
+            
+            /* Đổi màu các dấu gạch trong nút navbar-toggler thành màu đỏ */
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23AA0000' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+              }
+              
+          }
+          @media screen and (min-width: 768px) {
+          .chinhfontfootder{
+            font-size:19px;
+          }
+        }
+
+
+        {% block extra_head %}{% endblock %}  <!-- Định nghĩa block mà template con có thể ghi đè -->
+
+
+    </style>
+</head>
+<body>
+
+<header> 
+        <div id="textCarousel" class=" slide fixed-top vungcarousel d-flex justify-content-center align-items-center" data-bs-ride="carousel" data-bs-interval="5000">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="d-flex justify-content-center align-items-center ">
+                        <div class="carousel-text chucapthap">{% trans "Nhà Hàng Mở Cửa Vào Lúc: 9h-24h  24/7" %}
+                        </div>    
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class="d-flex justify-content-center align-items-center  ">
+                        <div class="carousel-text chucapthap">{% trans "Nhà Hàng Chúng Tôi Không Bán Online" %}</div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+      
+
+
+<nav class="navbar navbar-expand-lg fixed-top  thanhnavbarmenu p-0">
+
+        <div class="container">
+            <!-- Nút toggle khi thu gọn -->
+             <button class="navbar-toggler custom-toggler  ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> 
+
+   
+
+            <!-- Logo Bé Mặn hiển thị khi thu gọn, căn giữa -->
+            <a class="navbar-brand d-block d-lg-none mx-auto chuchinh">BÉMẶN </a>
+            <!-- Offcanvas chứa menu -->    
+            <div class="offcanvas offcanvas-end w-100 h-100  maunen " id="navbarNav" data-bs-backdrop="false"> 
+              <div class="offcanvas-header" >
+                    <h1 class=" chubemanchonutnavbar d-block d-lg-none">BéMặn</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body justify-content-center">
+                    <ul class="navbar-nav">
+                        <!-- Mục Trang Chủ -->
+                        <li class="nav-item">
+                            <a href="{% url 'trangchu' %}" class="nav-link h-100 d-flex padingchu "  href="#">{% trans "Trang Chủ" %}</a>
+                        </li>
+                        <!-- Mục Thực Đơn -->
+                        <li class="nav-item">
+                            <a href="{% url 'menu' %}" class="nav-link h-100 d-flex padingchu " href="#">{% trans "Thực Đơn" %}</a>
+                        </li>
+                        
+                        <!-- Logo Bé Mặn hiển thị trên màn hình lớn, căn giữa -->
+                        <a class="navbar-brand d-none d-lg-block mx-auto nav-item">
+                            <h1 class="chuchinh " id= "logomanghinhto">BéMặn</h1>
+                        </a>
+                        
+                        <!-- Mục Tuyển Dụng -->
+                        <li class="nav-item">
+                            <a href="{% url 'tuyendung' %}" class="nav-link h-100 d-flex padingchu " href="#">{% trans "Tuyển Dụng " %}</a>
+                        </li>
+                        <!-- Mục Về Chúng Tôi -->
+                        <li class="nav-item">
+                            <a href="{% url 'vechungtoi' %}" class="nav-link h-100 d-flex padingchu "  href="#" >{% trans "Về Chúng Tôi" %}</a>
+                        </li>
+                        <div class="khungchua">
+                        <p class=" tieudechungonngu d-block d-lg-none chucapthap">{% trans "Ngôn Ngữ: "%}</p>
+                        <!-- Form chọn ngôn ngữ, chỉ hiển thị trên màn hình nhỏ -->
+                        <form action="{% url 'set_language' %}" method="post">
+                            <input name="next" type="hidden" value="{{ redirect_to }}">
+                            {% csrf_token %}
+                            <div class="language-buttons d-flex d-lg-none">
+                                <button class="lang-btn btn-light {% if LANGUAGE_CODE == 'en' %}active{% endif %}" type="submit" name="language" value="en">EN</button>
+                                <button class="lang-btn btn-light {% if LANGUAGE_CODE == 'th' %}active{% endif %}" type="submit" name="language" value="th">TH</button>
+                                <button class="lang-btn btn-light {% if LANGUAGE_CODE == 'zh-hans' %}active{% endif %}" type="submit" name="language" value="zh-hans">CN</button>
+                                <button class="lang-btn btn-light {% if LANGUAGE_CODE == 'vi' %}active{% endif %}" type="submit" name="language" value="vi">VN</button>
+                                <button class="lang-btn btn-light {% if LANGUAGE_CODE == 'ko' %}active{% endif %}" type="submit" name="language" value="ko">KR</button>
+                                <button class="lang-btn btn-light {% if LANGUAGE_CODE == 'ja' %}active{% endif %}" type="submit" name="language" value="ja">JP</button>
+                            </div>
+                        </form>
+                        </div>
+
+                        <div class="khungchua">
+                        <p class=" tieudechungonngu d-block d-lg-none chucapthap">{% trans "Địa chỉ:" %}</p>
+                        <!-- Thông tin liên hệ, chỉ hiển thị trên màn hình nhỏ -->
+                        <div class=" d-lg-none ">
+                            <p class=" chungonngu chucapthap">{% trans "Số Điện Thoại: 0905 207 848 "%}</p>
+                            <p class=" chungonngu chucapthap ">{% trans "Địa chỉ: Lô 8 Võ Nguyên Giáp, Mân Thái, Sơn Trà, Đà Nẵng 550000" %}</p>
+                        </div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+
+            
+
+        </div>
+</nav>
+
+    
+    
+    
+</header> 
+
+
+
+    <div id="popup-overlay"></div>
+    <div id="lang-popup">
+        <form action="{% url 'set_language' %}" method="post">
+        <input name="next" type="hidden" value="{{ redirect_to }}">
+            {% csrf_token %}
+        <h3 class = "chuchinh mauchu" id="changing-text" >{% trans "Welcome to Bé Mặn Seafood Restaurant" %}</h3>
+        <h5 class = "chuphu" id="changing-text2">{% trans "Chose Your Language" %} </h5>
+        <div class="container">
+            <div class="row justify-content-center ">
+                <div class="col flag-text col-md-6 col-6"  >
+                    <button type="submit" name="language" value="vi" class="nutchonngonngu">
+                    <img src="{% static 'images/CoVN.png' %}" alt="Vietnamese Flag" class="flag-img">
+                    <p >Vietnamese</p>
+                    </button>
+
+                </div>
+                <div class="col flag-text col-md-6 col-6">
+                    <button type="submit" name="language" value="en" class="nutchonngonngu">
+                    <img src="{% static 'images/CoEN.png' %}" alt="English Flag" class="flag-img">
+                    <p >English</p>
+                    </button>
+
+                </div>
+                <div class="col flag-text col-md-6 col-6"  >
+                    <button type="submit" name="language" value="jp" class="nutchonngonngu">
+                    <img src="{% static 'images/CoJP.png' %}" alt="Japanese Flag" class="flag-img">
+                    <p>日本語</p>
+                    </button>
+
+                </div>
+                <div class="col flag-text col-md-6 col-6" >
+                    <button type="submit" name="language" value="kr" class="nutchonngonngu">
+                    <img src="{% static 'images/CoKR.png' %}" alt="Korean Flag" class="flag-img">
+                    <p >한국어</p>
+                    </button>
+                </div>
+                <div class="col flag-text col-md-6 col-6" >
+                    <button type="submit" name="language" value="th" class="nutchonngonngu"> 
+                    <img src="{% static 'images/CoTH.png' %}" alt="Thai Flag" class="flag-img">
+                    <p >ภาษาไทย</p>
+                    </button>
+
+                </div>
+                <div class="col flag-text col-md-6 col-6" >
+                    <button type="submit" name="language" value="cn" class="nutchonngonngu">
+                    <img src="{% static 'images/CoTQ.png' %}" alt="Chinese Flag" class="flag-img">
+                    <p>中文(简体)</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+
+
+
+    {% block content %}
+    <!-- Content for each page goes here -->
+    {% endblock %}
+
+<!-- Footer -->
+<!-- Remove the container if you want to extend the Footer to full width. -->
+<footer>
+<div class="container-fluid p-lg-4 pt-5 pb-1"style="background-color: #c33130; color:#FFFFFF">
+    <!-- Footer -->
+      <!-- Section: Links  -->
+      <section >
+        <div class="container text-start text-md-start ">
+          <!-- Grid row -->
+          <div class="row mt-3">
+            <!-- Grid column -->
+            <div class="col-12 col-lg-4">
+              <!-- Content -->
+              <h6 class=" chucapcao mt-3" style="font-size:6rem">BÉ MẶN</h6>
+              <p  class=" chucapthap  chinhfontfootder pe-md-5">
+                 {% trans "Bé Mặn - Nơi hội tụ hương vị biển cả, mang đến những món hải sản tươi ngon nhất cho bạn. Cảm ơn bạn đã đồng hành cùng chúng tôi!" %}
+              </p>
+            </div>
+            <!-- Grid column -->
+  
+            <div class="col-12 col-lg-8 d-flex">
+                  
+
+
+              <!-- Grid column -->
+              <div class="flex-fill col-6 mt-3">
+                <!-- Links -->
+                <h1 class="chucaptrung">{% trans " Liên Kết"%} </h1> 
+                <p >
+                  <a href="{% url 'trangchu' %}" class="text-white chucapthap text-decoration-none  chinhfontfootder">{% trans "Trang Chủ "%}</a>
+                </p>
+                <p >
+                  <a href="{% url 'menu' %}" class="text-white chucapthap text-decoration-none chinhfontfootder">{% trans "Thực Đơn" %}</a>
+                </p>
+                <p >
+                  <a href="{% url 'vechungtoi' %}" class="text-white chucapthap text-decoration-none chinhfontfootder">{% trans "Về Chúng Tôi " %}</a>
+                </p>
+                <p >
+                  <a href="{% url 'tuyendung' %}" class="text-white chucapthap text-decoration-none chinhfontfootder">{% trans "Tuyển Dụng" %}</a>
+                </p>
+              </div>
+              <!-- Grid column -->
+            
+                <!-- Grid column -->
+              <div class="flex-fill col-6 mt-3">
+                <!-- Links -->
+                <h1 class="chucaptrung">{% trans "Địa chỉ " %} </h1>   
+                <p class="  chucapthap chinhfontfootder pe-md-5"> {% trans "Lô 8 Võ Nguyên Giáp, Mân Thái, Sơn Trà, Đà Nẵng 550000" %}</p>
+                <a href="tel:+84901234567" class="  text-white chucapthap text-decoration-none chinhfontfootder">{% trans " 0905 207 848" %}</a>
+                <form action="{% url 'set_language' %}" method="post" class="pt-3">
+                  <input name="next" type="hidden" value="{{ redirect_to }}">
+                  {% csrf_token %}
+                  <div class="language-buttons d-flex ">
+                      <button class="lang-btn btn-light {% if LANGUAGE_CODE == 'en' %}active{% endif %}" type="submit" name="language" value="en">EN</button>
+                      <button class="lang-btn btn-light {% if LANGUAGE_CODE == 'th' %}active{% endif %}" type="submit" name="language" value="th">TH</button>
+                      <button class="lang-btn btn-light {% if LANGUAGE_CODE == 'zh-hans' %}active{% endif %}" type="submit" name="language" value="zh-hans">CN</button>
+                      <button class="lang-btn btn-light {% if LANGUAGE_CODE == 'vi' %}active{% endif %}" type="submit" name="language" value="vi">VN</button>
+                      <button class="lang-btn btn-light {% if LANGUAGE_CODE == 'ko' %}active{% endif %}" type="submit" name="language" value="ko">KR</button>
+                      <button class="lang-btn btn-light {% if LANGUAGE_CODE == 'ja' %}active{% endif %}" type="submit" name="language" value="ja">JP</button>
+                  </div>
+              </form>
+
+              </div>
+              <!-- Grid column -->
+
+            <div>
+          </div>
+          <!-- Grid row -->
+        </div>
+      </section>
+      <!-- Section: Links  -->
+  
+      <!-- Section: Social media -->
+      <section class="container d-flex justify-content-center khoichuaicon justify-content-md-start p-md-0">
+        <div class="p-3"> 
+            <svg fill="#c33130" height="32px" width="32px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-89.9 -89.9 489.80 489.80" xml:space="preserve" stroke="#c33130"><g id="SVGRepo_bgCarrier" stroke-width="0"><rect x="-89.9" y="-89.9" width="489.80" height="489.80" rx="244.9" fill="#ffffff" strokewidth="0"></rect></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="XMLID_834_"> <path id="XMLID_835_" d="M81.703,165.106h33.981V305c0,2.762,2.238,5,5,5h57.616c2.762,0,5-2.238,5-5V165.765h39.064 c2.54,0,4.677-1.906,4.967-4.429l5.933-51.502c0.163-1.417-0.286-2.836-1.234-3.899c-0.949-1.064-2.307-1.673-3.732-1.673h-44.996 V71.978c0-9.732,5.24-14.667,15.576-14.667c1.473,0,29.42,0,29.42,0c2.762,0,5-2.239,5-5V5.037c0-2.762-2.238-5-5-5h-40.545 C187.467,0.023,186.832,0,185.896,0c-7.035,0-31.488,1.381-50.804,19.151c-21.402,19.692-18.427,43.27-17.716,47.358v37.752H81.703 c-2.762,0-5,2.238-5,5v50.844C76.703,162.867,78.941,165.106,81.703,165.106z"></path> </g> </g></svg>
+        </div>
+        <div class="p-3"> 
+            <svg fill="#c33130" width="32px" height="32px" viewBox="0 0 32.00 32.00" xmlns="http://www.w3.org/2000/svg" stroke="#c33130" stroke-width="0.00032" transform="matrix(1, 0, 0, 1, 0, 0)"><g id="SVGRepo_bgCarrier" stroke-width="0"><rect x="0" y="0" width="32.00" height="32.00" rx="16" fill="#ffffff" strokewidth="0"></rect></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M20.445 5h-8.891A6.559 6.559 0 0 0 5 11.554v8.891A6.559 6.559 0 0 0 11.554 27h8.891a6.56 6.56 0 0 0 6.554-6.555v-8.891A6.557 6.557 0 0 0 20.445 5zm4.342 15.445a4.343 4.343 0 0 1-4.342 4.342h-8.891a4.341 4.341 0 0 1-4.341-4.342v-8.891a4.34 4.34 0 0 1 4.341-4.341h8.891a4.342 4.342 0 0 1 4.341 4.341l.001 8.891z"></path><path d="M16 10.312c-3.138 0-5.688 2.551-5.688 5.688s2.551 5.688 5.688 5.688 5.688-2.551 5.688-5.688-2.55-5.688-5.688-5.688zm0 9.163a3.475 3.475 0 1 1-.001-6.95 3.475 3.475 0 0 1 .001 6.95zM21.7 8.991a1.363 1.363 0 1 1-1.364 1.364c0-.752.51-1.364 1.364-1.364z"></path></g></svg>
+        </div>
+    </section>
+      <!-- Section: Social media -->
+  
+
+    <!-- Footer -->
+  </div>
+</footer>
+
+      
+     <script>
+
+                // Hàm để lấy giá trị của cookie
+          function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        } 
+        // Kiểm tra xem cookie đã được thiết lập hay chưa
+         $(document).ready(function () {
+            if (!getCookie('django_language')) {  // Nếu cookie 'django_language' chưa tồn tại
+            $('#lang-popup').show();  // Hiển thị pop-up
+            $('#popup-overlay').show();  // Hiển thị nền mờ
+        } }); 
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    
+</body>
+</html>  
+
+
+
+

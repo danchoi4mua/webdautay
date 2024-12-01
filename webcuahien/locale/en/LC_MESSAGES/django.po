@@ -1,0 +1,121 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-29 11:17+0700\n"
+"PO-Revision-Date: 2024-11-29 11:19+0000\n"
+"Last-Translator:   <fqwfqw@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
+
+#: .\templates\html_chung.html:376
+msgid "Nhà Hàng Mở Cửa Vào Lúc: 9h-24h  24/7"
+msgstr "The restaurant is open 24/7, from 9 AM to 12 AM daily."
+
+#: .\templates\html_chung.html:382
+msgid "Nhà Hàng Chúng Tôi Không Bán Online"
+msgstr ""
+
+#: .\templates\html_chung.html:412
+msgid "Trang Chủ"
+msgstr ""
+
+#: .\templates\html_chung.html:416 .\templates\html_chung.html:565
+msgid "Thực Đơn"
+msgstr ""
+
+#: .\templates\html_chung.html:426
+msgid "Tuyển Dụng "
+msgstr ""
+
+#: .\templates\html_chung.html:430
+msgid "Về Chúng Tôi"
+msgstr ""
+
+#: .\templates\html_chung.html:433
+msgid "Ngôn Ngữ: "
+msgstr ""
+
+#: .\templates\html_chung.html:450
+msgid "Địa chỉ:"
+msgstr ""
+
+#: .\templates\html_chung.html:453
+msgid "Số Điện Thoại: 0905 207 848 "
+msgstr ""
+
+#: .\templates\html_chung.html:454
+msgid "Địa chỉ: Lô 8 Võ Nguyên Giáp, Mân Thái, Sơn Trà, Đà Nẵng 550000"
+msgstr ""
+
+#: .\templates\html_chung.html:478
+msgid "Welcome to Bé Mặn Seafood Restaurant"
+msgstr ""
+
+#: .\templates\html_chung.html:479
+msgid "Chose Your Language"
+msgstr ""
+
+#: .\templates\html_chung.html:548
+msgid ""
+"Bé Mặn - Nơi hội tụ hương vị biển cả, mang đến những món hải sản tươi ngon "
+"nhất cho bạn. Cảm ơn bạn đã đồng hành cùng chúng tôi!"
+msgstr ""
+
+#: .\templates\html_chung.html:562
+msgid "Trang Chủ "
+msgstr ""
+
+#: .\templates\html_chung.html:568
+msgid "Về Chúng Tôi "
+msgstr ""
+
+#: .\templates\html_chung.html:571
+msgid "Tuyển Dụng"
+msgstr ""
+
+#: .\templates\html_chung.html:579
+msgid "Địa chỉ "
+msgstr ""
+
+#: .\templates\html_chung.html:580
+msgid "Lô 8 Võ Nguyên Giáp, Mân Thái, Sơn Trà, Đà Nẵng 550000"
+msgstr ""
+
+#: .\webcuahien\settings.py:129
+msgid "Vietnamese"
+msgstr ""
+
+#: .\webcuahien\settings.py:130
+msgid "English"
+msgstr ""
+
+#: .\webcuahien\settings.py:131
+msgid "Thai"
+msgstr ""
+
+#: .\webcuahien\settings.py:132
+msgid "Korean"
+msgstr ""
+
+#: .\webcuahien\settings.py:133
+msgid "Japanese"
+msgstr ""
+
+#: .\webcuahien\settings.py:134
+msgid "Simplified Chinese"
+msgstr ""
+
+#~ msgid "Hello, World!"
+#~ msgstr "tieng anh"
